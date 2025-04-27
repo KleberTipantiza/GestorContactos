@@ -319,11 +319,18 @@ public class ventana extends JFrame {
 
 	
 	public void actualizarCategorias() {
-	    cmb_categoria.removeAllItems(); // Limpiar el JComboBox antes de actualizar
-	    cmb_categoria.addItem(LanguageManager.getString("category_select")); // Elija una categoría
-	    cmb_categoria.addItem(LanguageManager.getString("Familia")); // Familia -> Family
-	    cmb_categoria.addItem(LanguageManager.getString("Amigos"));  // Amigos -> Friends
-	    cmb_categoria.addItem(LanguageManager.getString("Trabajo")); // Trabajo -> Work
+	    cmb_categoria.removeAllItems(); // 🔹 Limpiar el JComboBox
+
+	    // 🔹 Agregar elementos al JComboBox
+	    cmb_categoria.addItem(LanguageManager.getString("category_select")); 
+	    cmb_categoria.addItem(LanguageManager.getString("Familia")); 
+	    cmb_categoria.addItem(LanguageManager.getString("Amigos"));
+	    cmb_categoria.addItem(LanguageManager.getString("Trabajo"));
+
+	    // 🔹 Verificar que al menos haya un elemento seleccionado
+	    if (cmb_categoria.getItemCount() > 0) {
+	        cmb_categoria.setSelectedIndex(0); // Seleccionar el primer elemento
+	    }
 	}
 
 	
